@@ -24,25 +24,34 @@ while(sequenciaSistemica)
 
     string solicitacao = Console.ReadLine();
 
+
+    Console.WriteLine("Digite o Nome do Usuário");
+    string nomeUser = Console.ReadLine();
+
     switch (solicitacao)
     {
        case "1":
-            Console.WriteLine("Digite o Nome do Usuário");
-            string nome = Console.ReadLine();
-            biblioteca.AdicionarUsuario(nome, DateTime.Now);
+            biblioteca.AdicionarUsuario(nomeUser, DateTime.Now);
             break;
         case "2":
             Console.WriteLine("Digite o Nome do Livro:");
             string livro = Console.ReadLine();
-            Console.WriteLine("Digite o Nome do Usuário:");
-            string usuario = Console.ReadLine();
-            biblioteca.EmprestarLivro(livro, usuario);
+            biblioteca.EmprestarLivro(livro, nomeUser);
             break;
         case "3":
-           
+            Console.WriteLine("Digite o Nome do Livro:");
+            string nLivro = Console.ReadLine();
+            biblioteca.DevolverLivro(nLivro, nomeUser);
             return;
-
-        
+        case "4":
+            biblioteca.ConsultarLivrosEmprestados(nomeUser);
+            return;
+        case "5":
+            biblioteca.ConsultarLivrosEmprestados(nomeUser);
+            return;
+        case "6":
+            Console.WriteLine("Obrigada por fazer parte do club de livros :)");
+            break;
         default:
             Console.WriteLine("Opção inválida. Tente novamente.");
             break;
